@@ -1,17 +1,5 @@
+@import url("../styles/normalize.css");
+@import url("../styles/fonts.css");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*---- page ----*/
 @import url("../blocks/page/page.css");
