@@ -22,8 +22,19 @@
 @import url("../blocks/profile/__about/profile__about.css");
 @import url("../blocks/profile/__btn-container/profile__btn-container.css");
 
-/*
-div, button, img, .profile, .profile__name {
+/* btn-like */
+@import url("../blocks/btn-like/btn-like.css");
+/* card */
+@import url("../blocks/card/card.css");
+@import url("../blocks/card/__image/card__image.css");
+@import url("../blocks/card/__description/card__description.css");
+@import url("../blocks/card/__text/card__text.css");
+
+/*---- elements ----*/
+@import url("../blocks/elements/elements.css");
+
+/**/
+div, section, button, img, .profile, .profile__name {
     border: 1px solid red;
 }
-*/
+

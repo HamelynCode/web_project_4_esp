@@ -1,0 +1,8 @@
+.btn-like {
+    width: 21px;
+    height: 19px;
+    background-image: url(../../images/like-icon.svg);
+    background-color: white;
+    background-repeat: no-repeat;
+    object-fit: contain;
+}
