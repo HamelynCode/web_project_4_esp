@@ -22,7 +22,8 @@
 @import url("../blocks/profile/__about/profile__about.css");
 @import url("../blocks/profile/__btn-container/profile__btn-container.css");
 
-div, button, img, .profile {
+/*
+div, button, img, .profile, .profile__name {
     border: 1px solid red;
 }
-
+*/
