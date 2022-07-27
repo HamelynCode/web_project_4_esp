@@ -8,3 +8,9 @@
     object-fit: contain;
     border: 1px solid white;
 }
+
+@media screen and (max-width:320px) {
+    .btn-add {
+        width: 100%;
+    }
+}

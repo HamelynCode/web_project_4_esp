@@ -3,3 +3,9 @@
     height: 33px;
     background-image: url(../../../images/logo.svg);
 }
+
+@media screen and (max-width:320px) {
+    .header__logo {
+        margin-left: 27px;
+    }
+}

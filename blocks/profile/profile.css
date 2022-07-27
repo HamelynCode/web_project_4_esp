@@ -6,3 +6,12 @@
     justify-content: stretch;
     align-items: center;
 }
+
+@media screen and (max-width: 720px) {
+    .profile {
+        max-width: 282px;
+        flex-direction: column;
+
+        margin-top: 38px;
+    }
+}
