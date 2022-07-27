@@ -33,8 +33,12 @@
 /*---- elements ----*/
 @import url("../blocks/elements/elements.css");
 
-/**/
+/*---- footer ----*/
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/footer/__text/footer__text.css");
+
+/*
 div, section, button, img, .profile, .profile__name {
     border: 1px solid red;
 }
-
+*/
