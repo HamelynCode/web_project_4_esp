@@ -7,3 +7,22 @@
 /*---- header ----*/
 @import url("../blocks/header/header.css");
 @import url("../blocks/header/__logo/header__logo.css");
+
+/* btn-edit */
+@import url("../blocks/btn-edit/btn-edit.css");
+/* btn-add */
+@import url("../blocks/btn-add/btn-add.css");
+
+/*---- profile ----*/
+@import url("../blocks/profile/profile.css");
+@import url("../blocks/profile/__avatar/profile__avatar.css");
+@import url("../blocks/profile/__info/profile__info.css");
+@import url("../blocks/profile/__name-container/profile__name-container.css");
+@import url("../blocks/profile/__name/profile__name.css");
+@import url("../blocks/profile/__about/profile__about.css");
+@import url("../blocks/profile/__btn-container/profile__btn-container.css");
+
+div, button, img, .profile {
+    border: 1px solid red;
+}
+
