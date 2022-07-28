@@ -3,6 +3,11 @@
     height: 100%;
 
     border: none;
+    border-radius: 2px;
     background-color: black;
     color: white;
+}
+
+.btn-submit:hover {
+    opacity: 0.8;
 }

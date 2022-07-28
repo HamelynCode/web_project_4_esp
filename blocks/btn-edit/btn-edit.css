@@ -8,3 +8,7 @@
     object-fit: contain;
     border: 1px solid white;
 }
+
+.btn-edit:hover {
+    opacity: 0.6;
+}
