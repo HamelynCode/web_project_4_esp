@@ -1,0 +1,11 @@
+.form__about {
+    width: 100%;
+
+    border: none;
+    border-bottom: 1px solid black;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}

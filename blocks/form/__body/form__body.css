@@ -1,0 +1,16 @@
+.form__body {
+    max-width: 430px;
+    height: 330px;
+
+    position: relative;
+
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 36px 36px 36px;
+}

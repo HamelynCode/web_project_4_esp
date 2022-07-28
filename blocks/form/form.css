@@ -1,0 +1,13 @@
+.form {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+}
