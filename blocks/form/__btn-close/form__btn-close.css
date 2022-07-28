@@ -3,3 +3,9 @@
     top: -40px;
     right: -40px;
 }
+
+@media screen and (max-width:550px) {
+    .form__btn-close {
+        right: 0;
+    }
+}

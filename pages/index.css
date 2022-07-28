@@ -16,6 +16,7 @@
 @import url("../blocks/form/__title/form__title.css");
 @import url("../blocks/form/__name/form__name.css");
 @import url("../blocks/form/__about/form__about.css");
+@import url("../blocks/form/__btn-submit/form__btn-submit.css");
 
 /*---- header ----*/
 @import url("../blocks/header/header.css");
