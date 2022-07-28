@@ -39,6 +39,7 @@
 
 /* btn-like */
 @import url("../blocks/btn-like/btn-like.css");
+@import url("../blocks/btn-like/_active/btn-like_active.css");
 /* card */
 @import url("../blocks/card/card.css");
 @import url("../blocks/card/__image/card__image.css");
