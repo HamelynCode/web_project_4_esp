@@ -1,23 +1,23 @@
 .elements {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    justify-content: center;
-    row-gap: 20px;
-    column-gap: 17px;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 17px;
 
-    margin-top: 46px;
+  margin-top: 46px;
 }
 
-@media screen and (max-width:320px) {
-    .elements {
-        max-width: 282px;
-        flex-direction: column;
-        flex-wrap: nowrap;
+@media screen and (max-width: 320px) {
+  .elements {
+    max-width: 282px;
+    flex-direction: column;
+    flex-wrap: nowrap;
 
-        row-gap: 20px;
-        column-gap: 0;
+    row-gap: 20px;
+    column-gap: 0;
 
-        margin-top: 36px;
-    }
+    margin-top: 36px;
+  }
 }

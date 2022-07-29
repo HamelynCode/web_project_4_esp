@@ -1,23 +1,23 @@
 .form__body {
-    box-sizing: border-box;
-    width: 430px;
-    height: 330px;
+  box-sizing: border-box;
+  width: 430px;
+  height: 330px;
 
-    position: relative;
+  position: relative;
 
-    background-color: white;
-    color: black;
-    border-radius: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding: 0 36px 36px 36px;
+  padding: 0 36px 36px 36px;
 }
 
-@media screen and (max-width:320px) {
-    .form__body {
-        width: 282px;
-        height: 322px;
-    }
+@media screen and (max-width: 320px) {
+  .form__body {
+    width: 282px;
+    height: 322px;
+  }
 }

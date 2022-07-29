@@ -1,14 +1,14 @@
 .btn-edit {
-    width: 24px;
-    height: 24px;
-    background-image: url(../../images/edit-icon.svg);
-    background-color: black;
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: contain;
-    border: 1px solid white;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../images/edit-icon.svg);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  border: 1px solid white;
 }
 
 .btn-edit:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }

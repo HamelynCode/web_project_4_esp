@@ -1,19 +1,19 @@
 .form__about {
-    width: 100%;
-    height: 40px;
+  width: 100%;
+  height: 40px;
 
-    border: none;
-    border-bottom: 1px solid black;
+  border: none;
+  border-bottom: 1px solid black;
 
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .form__about:focus {
-    color: grey;
-    outline: none;
+  color: grey;
+  outline: none;
 }

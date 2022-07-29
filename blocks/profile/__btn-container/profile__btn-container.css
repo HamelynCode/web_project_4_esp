@@ -1,5 +1,5 @@
-@media screen and (max-width:320px) {
-    .profile__btn-container {
-        width: 100%;
-    }
+@media screen and (max-width: 320px) {
+  .profile__btn-container {
+    width: 100%;
+  }
 }

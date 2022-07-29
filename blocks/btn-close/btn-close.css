@@ -1,14 +1,15 @@
 .btn-close {
-    width: 40px;
-    height: 40px;
-    background-image: url(../../images/close-icon.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: contain;
-    border: none;
-    background-color: transparent;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../images/close-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  border: none;
+  background-color: transparent;
 }
 
-@media screen and (max-width:320px) {
-    .btn-close {}
+@media screen and (max-width: 320px) {
+  .btn-close {
+  }
 }
