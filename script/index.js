@@ -28,3 +28,17 @@ btnEditProfile.addEventListener("click", function () {
 
   form.classList.toggle("form_hidden");
 });
+
+document.addEventListener('keydown', function(event) {
+  const keyName = event.key;
+
+  if (keyName == "Enter" && form.classList.contains("form_hidden") == false) {
+    event.preventDefault();
+    
+    profileName.textContent = inputName.value;
+    profileAbout.textContent = inputAbout.value;
+
+    form.classList.toggle("form_hidden");
+    console.log("hola");
+  }
+});
