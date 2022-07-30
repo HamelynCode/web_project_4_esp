@@ -32,10 +32,10 @@
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/__avatar/profile__avatar.css");
 @import url("../blocks/profile/__info/profile__info.css");
-@import url("../blocks/profile/__name-container/profile__name-container.css");
+@import url("../blocks/profile/__data/profile__data.css");
 @import url("../blocks/profile/__name/profile__name.css");
 @import url("../blocks/profile/__about/profile__about.css");
-@import url("../blocks/profile/__btn-container/profile__btn-container.css");
+@import url("../blocks/profile/__btn/profile__btn.css");
 
 /* btn-like */
 @import url("../blocks/btn-like/btn-like.css");

@@ -11,21 +11,17 @@
     <!-- Edit Form -->
     <section class="form form_hidden">
       <div class="form__body">
-        <div class="form__btn-close">
-          <button class="btn-close" type="button"></button>
-        </div>
+        <button class="btn-close form__btn-close" type="button"></button>
         <h2 class="form__title">Edit profile</h2>
         <input type="text" class="form__name" placeholder="Nombre" />
         <input type="text" class="form__about" placeholder="Acerca de mi" />
-        <div class="form__btn-submit">
-          <button class="btn-submit">Guardar</button>
-        </div>
+        <button class="btn-submit form__btn-submit">Guardar</button>
       </div>
     </section>
 
     <!-- Header -->
     <section class="header">
-      <div class="header__logo"></div>
+      <img class="header__logo" src="./images/logo.svg" alt="Logo de Arround the U.S." />
     </section>
 
     <!-- Profile -->
@@ -36,15 +32,16 @@
         alt="Imágen de perfil del usuario"
       />
       <div class="profile__info">
-        <div class="profile__name-container">
+        <div class="profile__data">
           <h2 class="profile__name">Jacques Cousteau</h2>
           <button class="btn-edit"></button>
         </div>
         <p class="profile__about">Explorador</p>
       </div>
-      <div class="profile__btn-container">
+      <button class="btn-add profile__btn"></button>
+      <!--<div class="profile__btn-container">
         <button class="btn-add"></button>
-      </div>
+      </div>-->
     </section>
 
     <!-- Elements -->

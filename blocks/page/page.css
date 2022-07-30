@@ -10,8 +10,3 @@
   color: white;
   font-family: localInter, "Arial", "Helvetica", sans-serif;
 }
-
-@media screen and (max-width: 320px) {
-  .page {
-  }
-}
