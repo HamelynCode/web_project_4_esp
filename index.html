@@ -9,15 +9,6 @@
   </head>
   <body class="page">
     <!-- Edit Form -->
-    <section class="form form_hidden">
-      <div class="form__body">
-        <button class="btn-close form__btn-close" type="button"></button>
-        <h2 class="form__title">Edit profile</h2>
-        <input type="text" class="form__name" placeholder="Nombre" />
-        <input type="text" class="form__about" placeholder="Acerca de mi" />
-        <button class="btn-submit form__btn-submit">Guardar</button>
-      </div>
-    </section>
 
     <!-- Header -->
     <section class="header">
@@ -130,6 +121,18 @@
           <button class="btn-like"></button>
         </div>
       </div>
+    </template>
+
+    <template id="template-form">
+      <form class="form form_hidden">
+        <div class="form__body">
+          <button class="btn-close form__btn-close" type="button"></button>
+          <h2 class="form__title">Form Title</h2>
+          <input type="text" class="form__name" placeholder="" />
+          <input type="text" class="form__text" placeholder="" />
+          <button type="submit" class="btn-submit form__btn-submit">Guardar</button>
+        </div>
+      </form>
     </template>
 
     <script src="./script/index.js"></script>
