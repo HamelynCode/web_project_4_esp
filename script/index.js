@@ -42,3 +42,53 @@ document.addEventListener('keydown', function(event) {
     console.log("hola");
   }
 });
+
+/* Init page */
+//add cards
+const cards = [
+  {
+    name: "Valle de Yosemite",
+    link: "./images/yosemite.png"
+  },
+  {
+    name: "Lago Louise",
+    link: "./images/louise.png"
+  },
+  {
+    name: "Montañas Calvas",
+    link: "./images/calvas.png"
+  },
+  {
+    name: "Latemar",
+    link: "./images/latemar.png"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "./images/vanoise.png"
+  },
+  {
+    name: "Lago di Braies",
+    link: "./images/di-braies.png"
+  }
+];
+
+function createCardElement(name, link){
+  const template = document.querySelector("#template-card").content;
+  const card = template.cloneNode(true);
+  const img = card.querySelector(".card__image");
+  img.src = link;
+  img.alt = name;
+  const text = card.querySelector(".card__text");
+  text.textContent = name;
+  return card;
+}
+
+function updateCardsToPage(){
+  const sectionCards = document.querySelector(".elements");
+  cards.forEach((card)=>{
+    card = createCardElement(card.name, card.link);
+    sectionCards.append(card);
+  });
+}
+
+updateCardsToPage();
