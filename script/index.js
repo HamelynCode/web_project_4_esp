@@ -34,6 +34,21 @@ function createFormElement(nombrePlacehold, textoPlacehold, title){
   */
 }
 
+function createCardElement(name, link){
+  const template = document.querySelector("#template-card").content;
+  const card = template.cloneNode(true);
+  const img = card.querySelector(".card__image");
+  img.src = link;
+  img.alt = name;
+  const text = card.querySelector(".card__text");
+  text.textContent = name;
+  const btnLike = card.querySelector(".btn-like");
+  btnLike.addEventListener("click", function(evt){
+    evt.target.classList.toggle("btn-like_active");
+  });
+  return card;
+}
+
 /*-------- Form Edit Profile --------*/
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
@@ -70,7 +85,8 @@ btnAddCard.addEventListener("click", function () {
   cardForm.classList.toggle("form_hidden");
 });
 
-//add cards
+/*------- Card Elements -------*/
+//array de elementos "card"
 const cards = [
   {
     name: "Valle de Yosemite",
@@ -98,17 +114,7 @@ const cards = [
   }
 ];
 
-function createCardElement(name, link){
-  const template = document.querySelector("#template-card").content;
-  const card = template.cloneNode(true);
-  const img = card.querySelector(".card__image");
-  img.src = link;
-  img.alt = name;
-  const text = card.querySelector(".card__text");
-  text.textContent = name;
-  return card;
-}
-
+//actualizar todo el array cards en la página
 function updateCardsToPage(){
   const sectionCards = document.querySelector(".elements");
   sectionCards.innerHTML = "";
@@ -117,13 +123,18 @@ function updateCardsToPage(){
     sectionCards.append(card);
   });
 }
-
+//agregar un elemento card a la página
+function addCardToPage(card){
+  const sectionCards = document.querySelector(".elements");
+  sectionCards.prepend(card);
+}
+//agregar un "card" nuevo al array cards y actualizarlo en la página
 function addANewCard(newName, newLink){
   cards.unshift({
     name:newName,
     link:newLink
   });
-  updateCardsToPage();
+  addCardToPage( createCardElement(newName, newLink) );
 }
 
 const page = document.querySelector(".page");
