@@ -2,13 +2,18 @@
 
 ### Descripción general
 
+La finalidad de este sitio web es mostrar diferentes atracciones de Estados Unidos y permitir al usuario ingresar sus propios lugares, además de editar los datos de su perfil.
+- Se ha trabajado con javascript y css para dar comportamiento a formularios html.
+- Permite agregar nuevas imágenes a partir de una url.
+- Permite dar like o eliminar cada elemento.
+
+### tecnologías usadas
+
 * Figma
 * Html
 * Css
 * Javascript
 * Github pages
-
-Se ha trabajado con javascript y css para dar comportamiento a un formulario html.
 
 **Figma**
 
