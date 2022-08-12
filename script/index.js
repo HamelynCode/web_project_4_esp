@@ -1,6 +1,7 @@
 function createFormElement(nombrePlacehold, textoPlacehold, title) {
   const template = document.querySelector("#template-form").content;
   const form = template.cloneNode(true).querySelector(".form");
+  form.id = "";
   const formBtnClose = form.querySelector(".form__btn-close");
   const formBtnSubmit = form.querySelector(".form__btn-submit");
 
@@ -12,10 +13,10 @@ function createFormElement(nombrePlacehold, textoPlacehold, title) {
   inputText.placeholder = textoPlacehold;
 
   //agregar manejador de eventos por defecto
-  formBtnClose.addEventListener("click", (evt) => {
+  formBtnClose.addEventListener("click", () => {
     form.classList.toggle("form_hidden");
   });
-  formBtnSubmit.addEventListener("click", (evt) => {
+  formBtnSubmit.addEventListener("click", () => {
     form.classList.toggle("form_hidden");
   });
 
@@ -25,6 +26,7 @@ function createFormElement(nombrePlacehold, textoPlacehold, title) {
 function createCardElement(name, link) {
   const template = document.querySelector("#template-card").content;
   const card = template.cloneNode(true);
+  card.id = "";
   const img = card.querySelector(".card__image");
   img.src = link;
   img.alt = name;
@@ -37,8 +39,8 @@ function createCardElement(name, link) {
   btnLike.addEventListener("click", function (evt) {
     evt.target.classList.toggle("btn-like_active");
   });
-  const btndelete = card.querySelector(".btn-delete");
-  btndelete.addEventListener("click", function (evt) {
+  const btnDelete = card.querySelector(".btn-delete");
+  btnDelete.addEventListener("click", function (evt) {
     deleteCard(evt.target.closest(".card"));
   });
   return card;
@@ -130,7 +132,8 @@ function deleteCard(card) {
   const arrayItem = cards.find(function (item) {
     return item.name.includes(card.querySelector(".card__text").textContent);
   });
-  cards.splice(cards.indexOf(arrayItem), 1);
+  const cantidad = 1;
+  cards.splice(cards.indexOf(arrayItem), cantidad);
   //eliminar el elemento de la página
   card.remove();
 }
