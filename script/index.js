@@ -13,8 +13,8 @@ function createFormElement(nombrePlacehold, textoPlacehold, title){
   inputText.placeholder = textoPlacehold;
 
   //agregar manejador de eventos por defecto
-  formBtnClose.addEventListener("click",()=>{form.classList.toggle("form_hidden");});
-  formBtnSubmit.addEventListener("click",()=>{form.classList.toggle("form_hidden");});
+  formBtnClose.addEventListener("click",(evt)=>{form.classList.toggle("form_hidden");});
+  formBtnSubmit.addEventListener("click",(evt)=>{form.classList.toggle("form_hidden");});
 
   return form;
   /*
@@ -33,6 +33,16 @@ function createFormElement(nombrePlacehold, textoPlacehold, title){
   });
   */
 }
+
+/*function animFadeIn(elem){
+  elem.classList.remove("fade-out");
+  elem.classList.add("fade-in");
+}
+
+function animFadeOut(elem){
+  elem.classList.remove("fade-in");
+  elem.classList.add("fade-out");
+}*/
 
 function createCardElement(name, link){
   const template = document.querySelector("#template-card").content;
