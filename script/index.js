@@ -46,6 +46,10 @@ function createCardElement(name, link){
   btnLike.addEventListener("click", function(evt){
     evt.target.classList.toggle("btn-like_active");
   });
+  const btndelete = card.querySelector(".btn-delete");
+  btndelete.addEventListener("click", function(evt){
+    deleteCard(evt.target.closest(".card"));
+  });
   return card;
 }
 
@@ -114,7 +118,7 @@ const cards = [
   }
 ];
 
-//actualizar todo el array cards en la página
+//actualizar todo el array cards en la página (para uso posterior)
 function updateCardsToPage(){
   const sectionCards = document.querySelector(".elements");
   sectionCards.innerHTML = "";
@@ -127,6 +131,17 @@ function updateCardsToPage(){
 function addCardToPage(card){
   const sectionCards = document.querySelector(".elements");
   sectionCards.prepend(card);
+}
+
+//eliminar un elemento del array "cards" y de la pagina
+function deleteCard(card){
+  //eliminar el elemento del array
+  const arrayItem = cards.find(function (item) {
+    return item.name.includes( card.querySelector(".card__text").textContent );
+  });
+  cards.splice(cards.indexOf(arrayItem), 1);
+  //eliminar el elemento de la página
+  card.remove();
 }
 //agregar un "card" nuevo al array cards y actualizarlo en la página
 function addANewCard(newName, newLink){
