@@ -1,0 +1,5 @@
+.view__frame {
+    max-width: 75vw;
+    max-height: 75vh;
+    position: relative;
+}

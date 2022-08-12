@@ -8,3 +8,7 @@
   border: none;
   background-color: transparent;
 }
+
+.btn-close:hover {
+  opacity: 0.6;
+}

@@ -40,6 +40,9 @@ function createCardElement(name, link){
   const img = card.querySelector(".card__image");
   img.src = link;
   img.alt = name;
+  img.addEventListener("click", function(evt){
+    showImageToView(evt.target, name);
+  });
   const text = card.querySelector(".card__text");
   text.textContent = name;
   const btnLike = card.querySelector(".btn-like");
@@ -118,7 +121,7 @@ const cards = [
   }
 ];
 
-//actualizar todo el array cards en la página (para uso posterior)
+//actualizar todo el array cards en la página
 function updateCardsToPage(){
   const sectionCards = document.querySelector(".elements");
   sectionCards.innerHTML = "";
@@ -150,6 +153,22 @@ function addANewCard(newName, newLink){
     link:newLink
   });
   addCardToPage( createCardElement(newName, newLink) );
+}
+
+/*--- View image Section ---*/
+const viewSection = document.querySelector(".view");
+const btnClose = viewSection.querySelector(".view__btn-close");
+btnClose.addEventListener("click", function(){
+  viewSection.classList.toggle("view_hidden");
+});
+
+function showImageToView(nodeImg, imgName){
+  const viewImg = viewSection.querySelector(".view__image");
+  viewImg.src = nodeImg.src;
+  viewImg.alt = nodeImg.alt;
+  const name = viewSection.querySelector(".view__title");
+  name.textContent = imgName;
+  viewSection.classList.toggle("view_hidden");
 }
 
 const page = document.querySelector(".page");

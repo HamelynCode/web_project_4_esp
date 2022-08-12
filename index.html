@@ -8,7 +8,14 @@
     <title>Around the U.S.</title>
   </head>
   <body class="page">
-    <!-- Edit Form -->
+    <!-- View (hidden) -->
+    <section class="view view_hidden">
+      <div class="view__frame">
+        <button class="btn-close view__btn-close" type="button"></button>
+        <img class="view__image" src="./images/louise.png" alt="imagen seleccionada">
+        <p class="view__title">nombre de la imagen</p>
+      </div>
+    </section>
 
     <!-- Header -->
     <section class="header">
@@ -109,6 +116,7 @@
       <p class="footer__text">© 2021 Alrededor de los EEUU</p>
     </section>
 
+    <!-- Templates -->
     <template id="template-card">
       <div class="card">
         <button class="btn-delete"></button>
@@ -123,7 +131,7 @@
         </div>
       </div>
     </template>
-
+    
     <template id="template-form">
       <form class="form form_hidden">
         <div class="form__body">

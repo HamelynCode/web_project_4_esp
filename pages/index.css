@@ -4,6 +4,15 @@
 /*---- page ----*/
 @import url("../blocks/page/page.css");
 
+/*---- view ----*/
+@import url("../blocks/view/view.css");
+@import url("../blocks/view/hidden/view_hidden.css");
+
+@import url("../blocks/view/__frame/view__frame.css");
+@import url("../blocks/view/__btn-close/view__btn-close.css");
+@import url("../blocks/view/__image/view__image.css");
+@import url("../blocks/view/__title/view__title.css");
+
 /* btn-close */
 @import url("../blocks/btn-close/btn-close.css");
 /* btn-submit */
