@@ -37,6 +37,8 @@
 @import url("../blocks/profile/__about/profile__about.css");
 @import url("../blocks/profile/__btn/profile__btn.css");
 
+/* btn-delete */
+@import url("../blocks/btn-delete/btn-delete.css");
 /* btn-like */
 @import url("../blocks/btn-like/btn-like.css");
 @import url("../blocks/btn-like/_active/btn-like_active.css");

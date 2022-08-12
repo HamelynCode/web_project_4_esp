@@ -1,0 +1,18 @@
+.btn-delete {
+    width: 18px;
+    height: 19px;
+    background-image: url(../../images/trash-icon.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    border: none;
+
+    position: absolute;
+    top: 18px;
+    right: 15px;
+}
+
+.btn-delete:hover {
+    opacity: 0.6;
+  }
+  
