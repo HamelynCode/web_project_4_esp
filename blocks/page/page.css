@@ -1,6 +1,7 @@
 .page {
   max-width: 880px;
   margin: 0 auto;
+  padding: 0 22px;
 
   display: flex;
   flex-direction: column;
