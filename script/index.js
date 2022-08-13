@@ -1,7 +1,7 @@
 function createFormElement(nombrePlacehold, textoPlacehold, title) {
   const template = document.querySelector("#template-form").content;
   const form = template.cloneNode(true).querySelector(".form");
-  form.id = "";
+  form.removeAttribute("id");
   const formBtnClose = form.querySelector(".form__btn-close");
   const formBtnSubmit = form.querySelector(".form__btn-submit");
 
@@ -25,8 +25,8 @@ function createFormElement(nombrePlacehold, textoPlacehold, title) {
 
 function createCardElement(name, link) {
   const template = document.querySelector("#template-card").content;
-  const card = template.cloneNode(true);
-  card.id = "";
+  const card = template.cloneNode(true).querySelector(".card");
+  card.removeAttribute("id");
   const img = card.querySelector(".card__image");
   img.src = link;
   img.alt = name;
