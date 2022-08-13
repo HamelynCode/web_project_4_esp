@@ -1,0 +1,9 @@
+.btn {
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: contain;
+}
+
+.btn:hover {
+    opacity: 0.6;
+}

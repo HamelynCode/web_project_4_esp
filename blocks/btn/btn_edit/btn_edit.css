@@ -1,0 +1,7 @@
+.btn_edit {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../images/edit-icon.svg);
+  background-color: black;
+  border: 1px solid white;
+}

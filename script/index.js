@@ -35,11 +35,11 @@ function createCardElement(name, link) {
   });
   const text = card.querySelector(".card__text");
   text.textContent = name;
-  const btnLike = card.querySelector(".btn-like");
+  const btnLike = card.querySelector(".btn_like");
   btnLike.addEventListener("click", function (evt) {
-    evt.target.classList.toggle("btn-like_active");
+    evt.target.classList.toggle("btn_like_active");
   });
-  const btnDelete = card.querySelector(".btn-delete");
+  const btnDelete = card.querySelector(".btn_delete");
   btnDelete.addEventListener("click", function (evt) {
     deleteCard(evt.target.closest(".card"));
   });
@@ -57,7 +57,7 @@ profileForm.addEventListener("submit", (evt) => {
   profileAbout.textContent = profileForm.querySelector(".form__text").value;
 });
 //comportamiento del boton para abrir el formulario
-const btnEditProfile = document.querySelector(".btn-edit");
+const btnEditProfile = document.querySelector(".btn_edit");
 btnEditProfile.addEventListener("click", function () {
   profileForm.querySelector(".form__name").value = profileName.textContent;
   profileForm.querySelector(".form__text").value = profileAbout.textContent;
@@ -75,7 +75,7 @@ cardForm.addEventListener("submit", (evt) => {
   }
 });
 //comportamiento del boton para abrir el formulario
-const btnAddCard = document.querySelector(".btn-add");
+const btnAddCard = document.querySelector(".btn_add");
 btnAddCard.addEventListener("click", function () {
   cardForm.querySelector(".form__name").value = "";
   cardForm.querySelector(".form__text").value = "";

@@ -1,0 +1,11 @@
+.btn_delete {
+    width: 18px;
+    height: 19px;
+    background-image: url(../../../images/trash-icon.svg);
+    background-color: transparent;
+    border: none;
+
+    position: absolute;
+    top: 18px;
+    right: 15px;
+}
