@@ -3,6 +3,13 @@
 
 /*---- btn ----*/
 @import url("../blocks/btn/btn.css");
+@import url("../blocks/btn/_close/btn_close.css");
+@import url("../blocks/btn/_submit/btn_submit.css");
+@import url("../blocks/btn/_edit/btn_edit.css");
+@import url("../blocks/btn/_add/btn_add.css");
+@import url("../blocks/btn/_delete/btn_delete.css");
+@import url("../blocks/btn/_like/btn_like.css");
+@import url("../blocks/btn/_like_active/btn_like_active.css");
 
 /*---- page ----*/
 @import url("../blocks/page/page.css");
@@ -15,11 +22,6 @@
 @import url("../blocks/view/__btn-close/view__btn-close.css");
 @import url("../blocks/view/__image/view__image.css");
 @import url("../blocks/view/__title/view__title.css");
-
-/* btn-close */
-@import url("../blocks/btn/btn_close/btn_close.css");
-/* btn-submit */
-@import url("../blocks/btn/btn_submit/btn_submit.css");
 
 /*---- edit form ----*/
 @import url("../blocks/form/form.css");
@@ -35,11 +37,6 @@
 @import url("../blocks/header/header.css");
 @import url("../blocks/header/__logo/header__logo.css");
 
-/* btn-edit */
-@import url("../blocks/btn/btn_edit/btn_edit.css");
-/* btn-add */
-@import url("../blocks/btn/btn_add/btn_add.css");
-
 /*---- profile ----*/
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/__avatar/profile__avatar.css");
@@ -49,11 +46,6 @@
 @import url("../blocks/profile/__about/profile__about.css");
 @import url("../blocks/profile/__btn/profile__btn.css");
 
-/* btn-delete */
-@import url("../blocks/btn/btn_delete/btn_delete.css");
-/* btn-like */
-@import url("../blocks/btn/btn_like/btn_like.css");
-@import url("../blocks/btn/btn_like_active/btn_like_active.css");
 /* card */
 @import url("../blocks/card/card.css");
 @import url("../blocks/card/__image/card__image.css");
@@ -66,9 +58,3 @@
 /*---- footer ----*/
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__text/footer__text.css");
-
-/*
-div, section, button, img, .profile, .profile__name {
-    border: 1px solid red;
-}
-*/
