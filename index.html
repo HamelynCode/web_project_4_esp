@@ -72,8 +72,13 @@
         <div class="form__body">
           <button class="btn btn_close form__btn-close" type="button"></button>
           <h2 class="form__title">Form Title</h2>
-          <input type="text" class="form__name" placeholder="" />
-          <input type="text" class="form__text" placeholder="" />
+
+          <input type="text" class="form__name" id="input-name" placeholder="" />
+          <span class="form__name-error"        id="input-name-error"></span>
+
+          <input type="text" class="form__text" id="input-text" placeholder="" />
+          <span class="form__text-error"        id="input-text-error"></span>
+
           <button type="submit" class="btn btn_submit form__btn-submit">
             Guardar
           </button>
