@@ -1,5 +1,5 @@
-function createFormElement(nombrePlacehold, textoPlacehold, title) {
-  const template = document.querySelector("#template-form").content;
+function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
+  const template = document.querySelector(id).content;
   const form = template.cloneNode(true).querySelector(".form");
   form.removeAttribute("id");
   const formBtnClose = form.querySelector(".form__btn-close");
@@ -50,7 +50,7 @@ function createCardElement(name, link) {
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 //crear el formulario y dar comportamiento "onSubmit"
-const profileForm = createFormElement("Nombre", "Acerca de mi", "Edit Profile");
+const profileForm = createFormElement("Nombre", "Acerca de mi", "Edit Profile", "#template-form-edit");
 profileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileName.textContent = profileForm.querySelector(".form__name").value;
@@ -65,7 +65,7 @@ btnEditProfile.addEventListener("click", function () {
 });
 
 /*-------- Form Add Card --------*/
-const cardForm = createFormElement("Nombre", "Link", "Add a new Card");
+const cardForm = createFormElement("Nombre", "Link", "Add a new Card", "#template-form-add");
 cardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = cardForm.querySelector(".form__name").value;
