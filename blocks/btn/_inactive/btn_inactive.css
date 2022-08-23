@@ -4,3 +4,10 @@
     background-color: white;
     opacity: 0.2;
 }
+
+.btn_inactive:hover {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    opacity: 0.2;
+}
