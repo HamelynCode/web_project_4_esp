@@ -10,6 +10,7 @@
 @import url("../blocks/btn/_delete/btn_delete.css");
 @import url("../blocks/btn/_like/btn_like.css");
 @import url("../blocks/btn/_like_active/btn_like_active.css");
+@import url("../blocks/btn/_inactive/btn_inactive.css");
 
 /*---- page ----*/
 @import url("../blocks/page/page.css");
