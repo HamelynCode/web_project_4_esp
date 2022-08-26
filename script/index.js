@@ -2,6 +2,7 @@ function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
   const template = document.querySelector(id).content;
   const form = template.cloneNode(true).querySelector(".form");
   form.removeAttribute("id");
+
   const formBtnClose = form.querySelector(".form__btn-close");
   const formBtnSubmit = form.querySelector(".form__btn-submit");
 
@@ -13,10 +14,15 @@ function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
   inputText.placeholder = textoPlacehold;
 
   //agregar manejador de eventos por defecto
-  formBtnClose.addEventListener("click", () => {
+  form.addEventListener("click", (evt)=>{ //cerrar el formulario clickeando afuera
+    if(evt.target === form){
+      form.classList.toggle("form_hidden");
+    }
+  });
+  formBtnClose.addEventListener("click", () => { //cerrar el formulario con el btn cerrar
     form.classList.toggle("form_hidden");
   });
-  formBtnSubmit.addEventListener("click", () => {
+  formBtnSubmit.addEventListener("click", () => { //cerrar el formulario con el btn submit
     form.classList.toggle("form_hidden");
   });
 
@@ -149,7 +155,12 @@ function addANewCard(newName, newLink) {
 /*--- View image Section ---*/
 const viewSection = document.querySelector(".view");
 const btnClose = viewSection.querySelector(".view__btn-close");
-btnClose.addEventListener("click", function () {
+viewSection.addEventListener("click", (evt)=>{
+  if(evt.target === viewSection){//ocultar view al dar click afuera
+    viewSection.classList.toggle("view_hidden");
+  }
+});
+btnClose.addEventListener("click", function () {//ocultar view al clickear el btn de cierre
   viewSection.classList.toggle("view_hidden");
 });
 
