@@ -1,4 +1,4 @@
-# Proyecto 4: Alrededor de los Estados Unidos
+# Proyecto 6: Alrededor de los Estados Unidos
 
 ### Descripción general
 
@@ -6,6 +6,7 @@ La finalidad de este sitio web es mostrar diferentes atracciones de Estados Unid
 - Se ha trabajado con javascript y css para dar comportamiento a formularios html.
 - Permite agregar nuevas imágenes a partir de una url.
 - Permite dar like o eliminar cada elemento.
+- se ha implementado el manejo de errores al ingresar los datos del usuario
 
 ### tecnologías usadas
 
@@ -13,9 +14,10 @@ La finalidad de este sitio web es mostrar diferentes atracciones de Estados Unid
 * Html
 * Css
 * Javascript
+* metodología BEM
 * Github pages
 
-**Figma**
+**Diseño de Figma**
 
 * [Enlace al proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
 
