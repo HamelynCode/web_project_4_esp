@@ -173,6 +173,27 @@ function showImageToView(nodeImg, imgName) {
   viewSection.classList.toggle("view_hidden");
 }
 
+//agregar eventos de teclado al documento
+document.addEventListener("keydown", (evt)=>{
+  switch(evt.key){
+    case "Esc":
+    case "Escape":
+      //ocultar view al presionar escape
+      if(!viewSection.classList.contains("view_hidden")){
+        viewSection.classList.add("view_hidden");
+      }
+      //ocultar formulario "add card" al presionar escape
+      if(!cardForm.classList.contains("form_hidden")){
+        cardForm.classList.add("form_hidden");
+      }
+      //ocultar formulario "edit profile" al presionar escape
+      if(!profileForm.classList.contains("form_hidden")){
+        profileForm.classList.add("form_hidden");
+      }
+      break;
+  }
+});
+
 const page = document.querySelector(".page");
 page.append(profileForm);
 page.append(cardForm);
