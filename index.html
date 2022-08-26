@@ -73,11 +73,15 @@
           <button class="btn btn_close form__btn-close" type="button"></button>
           <h2 class="form__title">Form Title</h2>
 
-          <input type="text" class="input form__name" id="input-name" required minlength="2" maxlength="40" />
-          <span class="form__error"             id="input-name-error"></span>
+          <div class="form__input-container">
+            <input type="text" class="input form__name" id="input-name" required minlength="2" maxlength="40" />
+            <span class="form__error"             id="input-name-error"></span>
+          </div>
 
-          <input type="text" class="input form__text" id="input-text" required minlength="2" maxlength="200" />
-          <span class="form__error"             id="input-text-error"></span>
+          <div class="form__input-container">
+            <input type="text" class="input form__text" id="input-text" required minlength="2" maxlength="200" />
+            <span class="form__error"             id="input-text-error"></span>
+          </div>
 
           <button type="submit" class="btn btn_submit form__btn-submit">
             Guardar
@@ -92,12 +96,16 @@
           <button class="btn btn_close form__btn-close" type="button"></button>
           <h2 class="form__title">Form Title</h2>
 
-          <input type="text" class="input form__name" id="input-name" required minlength="0" maxlength="0" />
-          <span class="form__error"             id="input-name-error"></span>
+          <div class="form__input-container">
+            <input type="text" class="input form__name" id="input-name" required minlength="0" maxlength="0" />
+            <span class="form__error"             id="input-name-error"></span>
+          </div>
 
-          <input type="text" class="input form__text" id="input-text" required minlength="0" maxlength="0" />
-          <span class="form__error"             id="input-text-error"></span>
-
+          <div class="form__input-container">
+            <input type="text" class="input form__text" id="input-text" required minlength="0" maxlength="0" />
+            <span class="form__error"             id="input-text-error"></span>
+          </div>
+          
           <button type="submit" class="btn btn_submit form__btn-submit">
             Guardar
           </button>
