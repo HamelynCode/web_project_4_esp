@@ -1,3 +1,10 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import {
+  handleGlobalEventListeners,
+  addCardToPage,
+} from "./utils.js";
+
 function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
   const template = document.querySelector(id).content;
   const form = template.cloneNode(true).querySelector(".form");
@@ -14,82 +21,45 @@ function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
   inputText.placeholder = textoPlacehold;
 
   //agregar manejador de eventos por defecto
-  form.addEventListener("click", (evt)=>{ //cerrar el formulario clickeando afuera
-    if(evt.target === form){
+  form.addEventListener("click", (evt) => {
+    //cerrar el formulario clickeando afuera
+    if (evt.target === form) {
       form.classList.toggle("form_hidden");
     }
   });
-  formBtnClose.addEventListener("click", () => { //cerrar el formulario con el btn cerrar
+  formBtnClose.addEventListener("click", () => {
+    //cerrar el formulario con el btn cerrar
     form.classList.toggle("form_hidden");
   });
-  formBtnSubmit.addEventListener("click", () => { //cerrar el formulario con el btn submit
+  formBtnSubmit.addEventListener("click", () => {
+    //cerrar el formulario con el btn submit
     form.classList.toggle("form_hidden");
   });
 
   return form;
 }
 
-function createCardElement(name, link) {
-  const template = document.querySelector("#template-card").content;
-  const card = template.cloneNode(true).querySelector(".card");
-  card.removeAttribute("id");
-  const img = card.querySelector(".card__image");
-  img.src = link;
-  img.alt = name;
-  img.addEventListener("click", function (evt) {
-    showImageToView(evt.target, name);
-  });
-  const text = card.querySelector(".card__text");
-  text.textContent = name;
-  const btnLike = card.querySelector(".btn_like");
-  btnLike.addEventListener("click", function (evt) {
-    evt.target.classList.toggle("btn_like_active");
-  });
-  const btnDelete = card.querySelector(".btn_delete");
-  btnDelete.addEventListener("click", function (evt) {
-    deleteCard(evt.target.closest(".card"));
-  });
-  return card;
-}
-
 /*-------- Form Edit Profile --------*/
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
-//crear el formulario y dar comportamiento "onSubmit"
-const profileForm = createFormElement("Nombre", "Acerca de mi", "Edit Profile", "#template-form-edit");
-profileForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  profileName.textContent = profileForm.querySelector(".form__name").value;
-  profileAbout.textContent = profileForm.querySelector(".form__text").value;
-});
-//comportamiento del boton para abrir el formulario
-const btnEditProfile = document.querySelector(".btn_edit");
-btnEditProfile.addEventListener("click", function () {
-  profileForm.querySelector(".form__name").value = profileName.textContent;
-  profileForm.querySelector(".form__text").value = profileAbout.textContent;
-  profileForm.classList.toggle("form_hidden");
-});
+const profileForm = createFormElement(
+  "Nombre",
+  "Acerca de mi",
+  "Edit Profile",
+  "#template-form-edit"
+);
 
 /*-------- Form Add Card --------*/
-const cardForm = createFormElement("Nombre", "Link", "Add a new Card", "#template-form-add");
-cardForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = cardForm.querySelector(".form__name").value;
-  const link = cardForm.querySelector(".form__text").value;
-  if (name && link) {
-    addANewCard(name, link);
-  }
-});
-//comportamiento del boton para abrir el formulario
-const btnAddCard = document.querySelector(".btn_add");
-btnAddCard.addEventListener("click", function () {
-  cardForm.querySelector(".form__name").value = "";
-  cardForm.querySelector(".form__text").value = "";
-  cardForm.classList.toggle("form_hidden");
-});
+const cardForm = createFormElement(
+  "Nombre",
+  "Link",
+  "Add a new Card",
+  "#template-form-add"
+);
+
+/*--- View image Section ---*/
+const viewSection = document.querySelector(".view");
 
 /*------- Card Elements -------*/
-//array de elementos "card"
+//array de elementos "card" iniciales
 const cards = [
   {
     name: "Valle de Yosemite",
@@ -122,79 +92,27 @@ function updateCardsToPage() {
   const sectionCards = document.querySelector(".elements");
   sectionCards.innerHTML = "";
   cards.forEach((card) => {
-    card = createCardElement(card.name, card.link);
-    sectionCards.append(card);
+    const newCard = new Card(card.name, card.link, "#template-card"); //createCardElement(card.name, card.link);
+    addCardToPage(newCard);
   });
 }
-//agregar un elemento card a la página
-function addCardToPage(card) {
-  const sectionCards = document.querySelector(".elements");
-  sectionCards.prepend(card);
-}
-
-//eliminar un elemento del array "cards" y de la pagina
-function deleteCard(card) {
-  //eliminar el elemento del array
-  const arrayItem = cards.find(function (item) {
-    return item.name.includes(card.querySelector(".card__text").textContent);
-  });
-  const cantidad = 1;
-  cards.splice(cards.indexOf(arrayItem), cantidad);
-  //eliminar el elemento de la página
-  card.remove();
-}
-//agregar un "card" nuevo al array cards y actualizarlo en la página
-function addANewCard(newName, newLink) {
-  cards.unshift({
-    name: newName,
-    link: newLink,
-  });
-  addCardToPage(createCardElement(newName, newLink));
-}
-
-/*--- View image Section ---*/
-const viewSection = document.querySelector(".view");
-const btnClose = viewSection.querySelector(".view__btn-close");
-viewSection.addEventListener("click", (evt)=>{
-  if(evt.target === viewSection){//ocultar view al dar click afuera
-    viewSection.classList.toggle("view_hidden");
-  }
-});
-btnClose.addEventListener("click", function () {//ocultar view al clickear el btn de cierre
-  viewSection.classList.toggle("view_hidden");
-});
-
-function showImageToView(nodeImg, imgName) {
-  const viewImg = viewSection.querySelector(".view__image");
-  viewImg.src = nodeImg.src;
-  viewImg.alt = nodeImg.alt;
-  const name = viewSection.querySelector(".view__title");
-  name.textContent = imgName;
-  viewSection.classList.toggle("view_hidden");
-}
-
-//agregar eventos de teclado al documento
-document.addEventListener("keydown", (evt)=>{
-  switch(evt.key){
-    case "Esc":
-    case "Escape":
-      //ocultar view al presionar escape
-      if(!viewSection.classList.contains("view_hidden")){
-        viewSection.classList.add("view_hidden");
-      }
-      //ocultar formulario "add card" al presionar escape
-      if(!cardForm.classList.contains("form_hidden")){
-        cardForm.classList.add("form_hidden");
-      }
-      //ocultar formulario "edit profile" al presionar escape
-      if(!profileForm.classList.contains("form_hidden")){
-        profileForm.classList.add("form_hidden");
-      }
-      break;
-  }
-});
 
 const page = document.querySelector(".page");
 page.append(profileForm);
 page.append(cardForm);
 updateCardsToPage();
+
+handleGlobalEventListeners(cardForm, profileForm, viewSection);
+
+const config = {
+  formSelector: ".form",
+  inputSelector: ".input",
+  submitButtonSelector: ".form__btn-submit",
+  inactiveButtonClass: "btn_inactive",
+  inputErrorClass: "input_type_error",
+};
+
+const profileFormValidator = new FormValidator(config, profileForm);
+const cardFormValidator = new FormValidator(config, cardForm);
+profileFormValidator.enableValidation();
+cardFormValidator.enableValidation();
