@@ -5,6 +5,10 @@ function addCardToPage(card) {
   sectionCards.prepend(card.getElement());
 }
 
+function createCard(name, link) {
+  addCardToPage(new Card(name, link, "#template-card"));
+}
+
 function handleGlobalEventListeners(cardForm, profileForm, viewSection) {
   //-----------------------------eventos de profileForm---------------------
   const profileName = document.querySelector(".profile__name");
@@ -29,7 +33,7 @@ function handleGlobalEventListeners(cardForm, profileForm, viewSection) {
     const name = cardForm.querySelector(".form__name").value;
     const link = cardForm.querySelector(".form__text").value;
     if (name && link) {
-      addCardToPage(new Card(name, link, "#template-card"));
+      createCard(name, link);
     }
   });
   //comportamiento del boton para abrir el formulario
@@ -83,7 +87,6 @@ function showImageToView(nodeImg, imgName) {
   viewImg.alt = nodeImg.alt;
   const name = viewSection.querySelector(".view__title");
   name.textContent = imgName;
-  console.log(imgName, "!!", name.textContent);
   viewSection.classList.toggle("view_hidden");
 }
 

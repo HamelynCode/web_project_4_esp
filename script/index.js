@@ -92,7 +92,7 @@ function updateCardsToPage() {
   const sectionCards = document.querySelector(".elements");
   sectionCards.innerHTML = "";
   cards.forEach((card) => {
-    const newCard = new Card(card.name, card.link, "#template-card"); //createCardElement(card.name, card.link);
+    const newCard = new Card(card.name, card.link, "#template-card");
     addCardToPage(newCard);
   });
 }
