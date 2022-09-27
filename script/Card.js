@@ -35,16 +35,24 @@ export default class Card {
 
   _btnDeleteClickHandler() {
     const btnDelete = this._elem.querySelector(".btn_delete");
-    btnDelete.addEventListener("click", function (evt) {
-      evt.target.closest(".card").remove();
-    });
+    btnDelete.addEventListener("click", this._btnDeleteCallback);
+  }
+
+  _btnDeleteCallback = (evt) => {
+    evt.target.closest(".card").remove();
+    const btnDelete = this._elem.querySelector(".btn_delete");
+    btnDelete.removeEventListener("click", this._btnDeleteCallback);
   }
 
   _imgClickHandler() {
     const img = this._elem.querySelector(".card__image");
-    img.addEventListener("click", (evt) => {
-      showImageToView(evt.target, this._name);
-    });
+    img.addEventListener("click", this._imgCallback);
+  }
+
+  _imgCallback = (evt) => {
+    showImageToView(evt.target, this._name);
+    const img = this._elem.querySelector(".card__image");
+    img.removeEventListener("click", this._imgCallback);
   }
 
   _btnLikeClickHandler() {
