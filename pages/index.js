@@ -1,9 +1,9 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 import {
   handleGlobalEventListeners,
   addCardToPage,
-} from "./utils.js";
+} from "../utils/utils.js";
 
 function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
   const template = document.querySelector(id).content;

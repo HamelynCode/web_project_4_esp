@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+import Card from "../components/Card.js";
 
 function addCardToPage(card) {
   const sectionCards = document.querySelector(".elements");
