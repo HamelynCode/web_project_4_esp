@@ -1,5 +1,11 @@
 export default class Popup {
-    constructor(popupSelector){}
+    constructor({popupSelector, contentSelector}){
+        this._elem = document.querySelector(popupSelector).content.querySelector(contentSelector).cloneNode(true);
+    }
+
+    getElement(){
+        return this._elem;
+    }
 
     open(){}
 

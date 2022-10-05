@@ -1,4 +1,4 @@
-import { showImageToView } from "./utils.js";
+import { showImageToView } from "../utils/utils.js";
 
 export default class Card {
   constructor(name, imgUrl, templateSelector) {

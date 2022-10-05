@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 
+
 function addCardToPage(card) {
   const sectionCards = document.querySelector(".elements");
   sectionCards.prepend(card.getElement());
@@ -10,23 +11,18 @@ function createCard(name, link) {
 }
 
 function handleGlobalEventListeners(cardForm, profileForm, viewSection) {
+  
   //-----------------------------eventos de profileForm---------------------
-  const profileName = document.querySelector(".profile__name");
-  const profileAbout = document.querySelector(".profile__about");
 
+  /*
   profileForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
     profileName.textContent = profileForm.querySelector(".form__name").value;
     profileAbout.textContent = profileForm.querySelector(".form__text").value;
   });
-  //comportamiento del boton para abrir el formulario
-  const btnEditProfile = document.querySelector(".btn_edit");
-  btnEditProfile.addEventListener("click", function () {
-    profileForm.querySelector(".form__name").value = profileName.textContent;
-    profileForm.querySelector(".form__text").value = profileAbout.textContent;
-    profileForm.classList.toggle("form_hidden");
-  });
-
+  */
+  
+  /*
   //-----------------------------eventos de cardform---------------------
   cardForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
@@ -78,6 +74,7 @@ function handleGlobalEventListeners(cardForm, profileForm, viewSection) {
         break;
     }
   });
+  */
 }
 
 function showImageToView(nodeImg, imgName) {
