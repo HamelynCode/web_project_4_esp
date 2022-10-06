@@ -3,50 +3,14 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
-import {
-  handleGlobalEventListeners,
-  addCardToPage,
-} from "../utils/utils.js";
+
 import { profileFormInfo, cardFormInfo, validatorConfig, cards } from "../utils/constants.js";
-/*
-function createFormElement(nombrePlacehold, textoPlacehold, title, id) {
-  const template = document.querySelector(id).content;
-  const form = template.cloneNode(true).querySelector(".form");
-  form.removeAttribute("id");
 
-  const formBtnClose = form.querySelector(".form__btn-close");
-  const formBtnSubmit = form.querySelector(".form__btn-submit");
-
-  const formTitle = form.querySelector(".form__title");
-  formTitle.textContent = title;
-  const inputName = form.querySelector(".form__name");
-  inputName.placeholder = nombrePlacehold;
-  const inputText = form.querySelector(".form__text");
-  inputText.placeholder = textoPlacehold;
-
-  //agregar manejador de eventos por defecto
-  form.addEventListener("click", (evt) => {
-    //cerrar el formulario clickeando afuera
-    if (evt.target === form) {
-      form.classList.toggle("form_hidden");
-    }
-  });
-  formBtnClose.addEventListener("click", () => {
-    //cerrar el formulario con el btn cerrar
-    form.classList.toggle("form_hidden");
-  });
-  formBtnSubmit.addEventListener("click", () => {
-    //cerrar el formulario con el btn submit
-    form.classList.toggle("form_hidden");
-  });
-
-  return form;
-}
-*/
+const viewSection = new PopupWithImage(".view");
 
 /*------- Card Elements -------*/
 const sectionCards = new Section({items:cards, renderer:(card)=>{
-  const newCard = new Card(card.name, card.link, "#template-card");
+  const newCard = new Card(card.name, card.link, "#template-card", viewSection.showElement);
   sectionCards.addItem(newCard.getElement());
 }}, ".elements");
 sectionCards.render();
@@ -104,30 +68,9 @@ btnAddCard.addEventListener("click", () => {
 });
 
 
-
-
-/*--- View image Section ---*/
-//const viewSection = document.querySelector(".view");
-
-const viewSection = PopupWithImage(".view");
-
-//actualizar todo el array cards en la página
-/*
-function updateCardsToPage() {
-  const sectionCards = document.querySelector(".elements");
-  sectionCards.innerHTML = "";
-  cards.forEach((card) => {
-    const newCard = new Card(card.name, card.link, "#template-card");
-    addCardToPage(newCard);
-  });
-}*/
-
 const page = document.querySelector(".page");
 page.append(profileFormElement);
 page.append(cardFormElement);
-//updateCardsToPage();
-
-//handleGlobalEventListeners(cardForm, profileForm, viewSection);
 
 const profileFormValidator = new FormValidator(validatorConfig, profileFormElement);
 const cardFormValidator = new FormValidator(validatorConfig, cardFormElement);

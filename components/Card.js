@@ -1,10 +1,10 @@
-import { showImageToView } from "../utils/utils.js";
 
 export default class Card {
-  constructor(name, imgUrl, templateSelector) {
+  constructor(name, imgUrl, templateSelector, imgClickCallback) {
     this._name = name;
     this._imgUrl = imgUrl;
     this._elem = this._getElementFromTemplate(templateSelector);
+    this._imgCallback = imgClickCallback;
     this._handleEventListeners();
   }
 
@@ -19,6 +19,7 @@ export default class Card {
       .content.querySelector(".card")
       .cloneNode(true);
     const img = elem.querySelector(".card__image");
+    img.name = this._name;
     img.src = this._imgUrl;
     img.alt = this._name;
 
@@ -48,12 +49,12 @@ export default class Card {
     const img = this._elem.querySelector(".card__image");
     img.addEventListener("click", this._imgCallback);
   }
-
+  /*
   _imgCallback = (evt) => {
     showImageToView(evt.target, this._name);
     const img = this._elem.querySelector(".card__image");
     img.removeEventListener("click", this._imgCallback);
-  }
+  }*/
 
   _btnLikeClickHandler() {
     const btnLike = this._elem.querySelector(".btn_like");

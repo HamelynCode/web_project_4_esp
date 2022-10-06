@@ -1,9 +1,27 @@
 import Popup from "./Popup.js";
 
+const info = {
+    hiddenClass:"view_hidden",
+    btnClose:".view__btn-close"
+}
+
+
 export default class PopupWithImage extends Popup {
     constructor(popupSelector){
-        super(popupSelector);
+        super({popupSelector}, info);
+        this._viewImg = this.getElement().querySelector(".view__image");
+        this._targetName = this.getElement().querySelector(".view__title");
+        this.setEventListeners();
     }
 
-    open(){}
+    open(target){
+        this._viewImg.src = target.src;
+        this._viewImg.alt = target.alt;
+        this._targetName.textContent = target.name;
+        super.open();
+    }
+
+    showElement = (evt) =>{
+        this.open(evt.target);
+    }
 }
