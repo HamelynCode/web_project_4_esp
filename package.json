@@ -1,0 +1,35 @@
+{
+  "name": "web_project_4_esp",
+  "version": "1.0.0",
+  "description": "La finalidad de este sitio web es mostrar diferentes atracciones de Estados Unidos y permitir al usuario ingresar sus propios lugares, además de editar los datos de su perfil.\r - Se ha trabajado con javascript y css para dar comportamiento a formularios html.\r - Permite agregar nuevas imágenes a partir de una url.\r - Permite dar like o eliminar cada elemento.\r - se ha implementado el manejo de errores al ingresar los datos del usuario",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamelynCode/web_project_4_esp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamelynCode/web_project_4_esp/issues"
+  },
+  "homepage": "https://github.com/HamelynCode/web_project_4_esp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "core-js": "^3.25.5"
+  }
+}
