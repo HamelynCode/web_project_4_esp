@@ -1,3 +1,10 @@
+import yosemite from "../images/yosemite.png";
+import louise from "../images/louise.png";
+import calvas from "../images/calvas.png";
+import latemar from "../images/latemar.png";
+import vanoise from "../images/vanoise.png";
+import braies from "../images/di-braies.png";
+
 const profileFormInfo = {
   btnClose: ".form__btn-close",
   btnSubmit: ".form__btn-submit",
@@ -53,27 +60,27 @@ const globalInfo = {
 const cards = [
   {
     name: "Valle de Yosemite",
-    link: "./images/yosemite.png",
+    link: yosemite,
   },
   {
     name: "Lago Louise",
-    link: "./images/louise.png",
+    link: louise,
   },
   {
     name: "Montañas Calvas",
-    link: "./images/calvas.png",
+    link: calvas,
   },
   {
     name: "Latemar",
-    link: "./images/latemar.png",
+    link: latemar,
   },
   {
     name: "Vanoise National Park",
-    link: "./images/vanoise.png",
+    link: vanoise,
   },
   {
     name: "Lago di Braies",
-    link: "./images/di-braies.png",
+    link: braies,
   },
 ];
 

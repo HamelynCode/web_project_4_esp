@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Around the U.S.</title>
   </head>
   <body class="page">
@@ -14,7 +13,7 @@
         <button class="btn btn_close view__btn-close" type="button"></button>
         <img
           class="view__image"
-          src="./images/louise.png"
+          src="<%=require('./images/louise.png')%>"
           alt="imagen seleccionada"
         />
         <p class="view__title">nombre de la imagen</p>
@@ -25,7 +24,7 @@
     <section class="header">
       <img
         class="header__logo"
-        src="./images/logo.svg"
+        src="<%=require('./images/logo.svg')%>"
         alt="Logo de Arround the U.S."
       />
     </section>
@@ -34,7 +33,7 @@
     <section class="profile">
       <img
         class="profile__avatar"
-        src="./images/avatar.jpg"
+        src="<%=require('./images/avatar.jpg')%>"
         alt="Imágen de perfil del usuario"
       />
       <div class="profile__info">
@@ -59,7 +58,7 @@
     <template id="template-card">
       <div class="card">
         <button class="btn btn_delete"></button>
-        <img class="card__image" src="./images/louise.png" alt="Template" />
+        <img class="card__image" src="<%=require('./images/louise.png')%>" alt="Template" />
         <div class="card__description">
           <p class="card__text">nombre de la imagen</p>
           <button class="btn btn_like"></button>
@@ -112,7 +111,5 @@
         </div>
       </form>
     </template>
-    
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
