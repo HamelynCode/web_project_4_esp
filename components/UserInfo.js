@@ -6,22 +6,12 @@ export default class UserInfo {
 
   getUserInfo() {
     // retorna un objeto con los datos del usuario
-    const name = this._getName();
-    const about = this._getAbout();
-    return { name, about };
+    return { name:this._name.textContent, about:this._about.textContent};
   }
 
-  setUserInfo(user) {
+  setUserInfo({name, about}) {
     //recive un objeto con datos del usuario y lo actualiza en el DOM
-    this._name.textContent = user.name;
-    this._about.textContent = user.about;
-  }
-
-  _getName() {
-    return this._name.textContent;
-  }
-
-  _getAbout() {
-    return this._about.textContent;
+    this._name.textContent = name;
+    this._about.textContent = about;
   }
 }

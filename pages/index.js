@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
 import {
   profileFormInfo,
   cardFormInfo,
@@ -36,8 +37,10 @@ const sectionCards = new Section(
 sectionCards.render();
 
 /*-------- Form Edit Profile --------*/
-const profileName = document.querySelector(globalInfo.profileNameClass);
-const profileAbout = document.querySelector(globalInfo.profileAboutClass);
+const user = new UserInfo({
+  nameSelector: globalInfo.profileNameClass,
+  aboutSelector: globalInfo.profileAboutClass,
+});
 
 const profileForm = new PopupWithForm(
   {
@@ -47,8 +50,10 @@ const profileForm = new PopupWithForm(
   profileFormInfo,
   (evt) => {
     evt.preventDefault();
-    profileName.textContent = profileForm.getInputValues().name;
-    profileAbout.textContent = profileForm.getInputValues().text;
+    user.setUserInfo({
+      name: profileForm.getInputValues().name,
+      about: profileForm.getInputValues().text,
+    });
   }
 );
 profileForm.init(
@@ -61,8 +66,8 @@ const profileFormElement = profileForm.getElement();
 //comportamiento del boton para abrir el formulario
 const btnEditProfile = document.querySelector(globalInfo.btnEditProfileClass);
 btnEditProfile.addEventListener("click", () => {
-  profileForm.getNameInput().value = profileName.textContent;
-  profileForm.getTextInput().value = profileAbout.textContent;
+  profileForm.getNameInput().value = user.getUserInfo().name;
+  profileForm.getTextInput().value = user.getUserInfo().about;
   profileForm.open();
 });
 
