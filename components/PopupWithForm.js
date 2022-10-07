@@ -41,5 +41,15 @@ export default class PopupWithForm extends Popup {
 
     _submitInternalCallback = evt => {this.close();}
 
-    _getInputValues(){}
+    getInputValues(){
+        const values = {
+            name:this._inputName.value,
+            text:this._inputText.value
+        }
+        return values;
+    }
+
+    getNameInput(){return this._inputName}
+
+    getTextInput(){return this._inputText}
 }

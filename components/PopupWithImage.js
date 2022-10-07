@@ -1,13 +1,8 @@
 import Popup from "./Popup.js";
 
-const info = {
-    hiddenClass:"view_hidden",
-    btnClose:".view__btn-close"
-}
-
 
 export default class PopupWithImage extends Popup {
-    constructor(popupSelector){
+    constructor(popupSelector, info){
         super({popupSelector}, info);
         this._viewImg = this.getElement().querySelector(".view__image");
         this._targetName = this.getElement().querySelector(".view__title");

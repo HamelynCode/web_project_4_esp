@@ -3,72 +3,70 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
+import { profileFormInfo, cardFormInfo, viewSectionInfo, globalInfo, validatorConfig, cards } from "../utils/constants.js";
 
-import { profileFormInfo, cardFormInfo, validatorConfig, cards } from "../utils/constants.js";
-
-const viewSection = new PopupWithImage(".view");
+const viewSection = new PopupWithImage(globalInfo.viewSectionClass, viewSectionInfo);
 
 /*------- Card Elements -------*/
 const sectionCards = new Section({items:cards, renderer:(card)=>{
-  const newCard = new Card(card.name, card.link, "#template-card", viewSection.showElement);
+  const newCard = new Card(card.name, card.link, globalInfo.cardTemplateId, viewSection.showElement);
   sectionCards.addItem(newCard.getElement());
-}}, ".elements");
+}}, globalInfo.cardSectionClass);
 sectionCards.render();
 
 
 /*-------- Form Edit Profile --------*/
+const profileName = document.querySelector(globalInfo.profileNameClass);
+const profileAbout = document.querySelector(globalInfo.profileAboutClass);
+
 const profileForm = new PopupWithForm(
-  {popupSelector:"#template-form-edit", contentSelector:".form"}, 
+  {popupSelector:globalInfo.profileFormTemplateId, contentSelector:globalInfo.formClass}, 
   profileFormInfo,
   (evt)=>{
     evt.preventDefault();
-    const profileName = document.querySelector(".profile__name");
-    const profileAbout = document.querySelector(".profile__about");
-    profileName.textContent = profileForm.getElement().querySelector(".form__name").value;
-    profileAbout.textContent = profileForm.getElement().querySelector(".form__text").value;
+    profileName.textContent = profileForm.getInputValues().name;
+    profileAbout.textContent = profileForm.getInputValues().text;
   }
 );
-profileForm.init("Edit Profile", "Nombre", "Acerca de mi");
+profileForm.init(globalInfo.profileFormTitle, globalInfo.profileFormName, globalInfo.profileFormText);
 const profileFormElement = profileForm.getElement();
 
 //comportamiento del boton para abrir el formulario
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
-const btnEditProfile = document.querySelector(".btn_edit");
+const btnEditProfile = document.querySelector(globalInfo.btnEditProfileClass);
 btnEditProfile.addEventListener("click", () => {
-  profileFormElement.querySelector(".form__name").value = profileName.textContent;
-  profileFormElement.querySelector(".form__text").value = profileAbout.textContent;
+  profileForm.getNameInput().value = profileName.textContent;
+  profileForm.getTextInput().value = profileAbout.textContent;
   profileForm.open();
 });
 
 
 /*-------- Form Add Card --------*/
 const cardForm = new PopupWithForm(
-  {popupSelector:"#template-form-add", contentSelector:".form"}, 
+  {popupSelector:globalInfo.cardFormTemplateId, contentSelector:globalInfo.formClass}, 
   cardFormInfo,
   (evt)=>{
     evt.preventDefault();
-    const name = cardForm.getElement().querySelector(".form__name").value;
-    const link = cardForm.getElement().querySelector(".form__text").value;
+    const name = cardForm.getInputValues().name;
+    const link = cardForm.getInputValues().text;
     if (name && link) {
-      const newCard = new Card(name, link, "#template-card");
+      const newCard = new Card(name, link, globalInfo.cardTemplateId, viewSection.showElement);
       sectionCards.addItem(newCard.getElement());
     }
   }
 );
-cardForm.init("Add a new Card", "Nombre", "Link");
+cardForm.init(globalInfo.cardFormTitle, globalInfo.cardFormName, globalInfo.cardFormText);
 const cardFormElement = cardForm.getElement();
 
 //comportamiento del boton para abrir el formulario
-const btnAddCard = document.querySelector(".btn_add");
+const btnAddCard = document.querySelector(globalInfo.btnAddCardClass);
 btnAddCard.addEventListener("click", () => {
-  cardFormElement.querySelector(".form__name").value = "";
-  cardFormElement.querySelector(".form__text").value = "";
+  cardForm.getNameInput().value = "";
+  cardForm.getTextInput().value = "";
   cardForm.open();
 });
 
 
-const page = document.querySelector(".page");
+const page = document.querySelector(globalInfo.pageClass);
 page.append(profileFormElement);
 page.append(cardFormElement);
 
