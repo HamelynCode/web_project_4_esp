@@ -7,8 +7,8 @@
     <title>Around the U.S.</title>
   </head>
   <body class="page">
-    <!-- View (hidden) -->
-    <section class="view view_hidden">
+    <!-- Popups (hidden) -->
+    <div class="view popup popup_hidden">
       <div class="view__frame">
         <button class="btn btn_close view__btn-close" type="button"></button>
         <img
@@ -18,7 +18,49 @@
         />
         <p class="view__title">nombre de la imagen</p>
       </div>
-    </section>
+    </div>
+
+    <form class="form popup popup_hidden" id="form-edit">
+      <div class="form__body">
+        <button class="btn btn_close form__btn-close" type="button"></button>
+        <h2 class="form__title">Form Title</h2>
+
+        <div class="form__input-container">
+          <input type="text" class="input form__name" id="edit-input-name" required minlength="2" maxlength="40" />
+          <span class="form__error"             id="edit-input-name-error"></span>
+        </div>
+
+        <div class="form__input-container">
+          <input type="text" class="input form__text" id="edit-input-text" required minlength="2" maxlength="200" />
+          <span class="form__error"             id="edit-input-text-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn_submit form__btn-submit">
+          Guardar
+        </button>
+      </div>
+    </form>
+
+    <form class="form popup popup_hidden" id="form-add">
+      <div class="form__body">
+        <button class="btn btn_close form__btn-close" type="button"></button>
+        <h2 class="form__title">Form Title</h2>
+
+        <div class="form__input-container">
+          <input type="text" class="input form__name" id="add-input-name" required minlength="2" maxlength="30" />
+          <span class="form__error"             id="add-input-name-error"></span>
+        </div>
+
+        <div class="form__input-container">
+          <input type="url" class="input form__text" id="add-input-text" required />
+          <span class="form__error"             id="add-input-text-error"></span>
+        </div>
+        
+        <button type="submit" class="btn btn_submit form__btn-submit">
+          Guardar
+        </button>
+      </div>
+    </form>
 
     <!-- Header -->
     <section class="header">
@@ -50,9 +92,9 @@
     <section class="elements"></section>
 
     <!-- Footer -->
-    <section class="footer">
+    <footer class="footer">
       <p class="footer__text">© 2021 Alrededor de los EEUU</p>
-    </section>
+    </footer>
 
     <!-- Templates -->
     <template id="template-card">
@@ -66,50 +108,5 @@
       </div>
     </template>
 
-    <template id="template-form-edit">
-      <form class="form form_hidden">
-        <div class="form__body">
-          <button class="btn btn_close form__btn-close" type="button"></button>
-          <h2 class="form__title">Form Title</h2>
-
-          <div class="form__input-container">
-            <input type="text" class="input form__name" id="edit-input-name" required minlength="2" maxlength="40" />
-            <span class="form__error"             id="edit-input-name-error"></span>
-          </div>
-
-          <div class="form__input-container">
-            <input type="text" class="input form__text" id="edit-input-text" required minlength="2" maxlength="200" />
-            <span class="form__error"             id="edit-input-text-error"></span>
-          </div>
-
-          <button type="submit" class="btn btn_submit form__btn-submit">
-            Guardar
-          </button>
-        </div>
-      </form>
-    </template>
-
-    <template id="template-form-add">
-      <form class="form form_hidden">
-        <div class="form__body">
-          <button class="btn btn_close form__btn-close" type="button"></button>
-          <h2 class="form__title">Form Title</h2>
-
-          <div class="form__input-container">
-            <input type="text" class="input form__name" id="add-input-name" required minlength="2" maxlength="30" />
-            <span class="form__error"             id="add-input-name-error"></span>
-          </div>
-
-          <div class="form__input-container">
-            <input type="url" class="input form__text" id="add-input-text" required />
-            <span class="form__error"             id="add-input-text-error"></span>
-          </div>
-          
-          <button type="submit" class="btn btn_submit form__btn-submit">
-            Guardar
-          </button>
-        </div>
-      </form>
-    </template>
   </body>
 </html>

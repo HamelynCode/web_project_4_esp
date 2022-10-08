@@ -12,12 +12,15 @@
 @import url("../blocks/btn/_like_active/btn_like_active.css");
 @import url("../blocks/btn/_inactive/btn_inactive.css");
 
+/*---- popup ----*/
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/_hidden/popup_hidden.css");
+
 /*---- page ----*/
 @import url("../blocks/page/page.css");
 
 /*---- view ----*/
 @import url("../blocks/view/view.css");
-@import url("../blocks/view/hidden/view_hidden.css");
 
 @import url("../blocks/view/__frame/view__frame.css");
 @import url("../blocks/view/__btn-close/view__btn-close.css");
@@ -26,7 +29,6 @@
 
 /*---- form ----*/
 @import url("../blocks/form/form.css");
-@import url("../blocks/form/_hidden/form_hidden.css");
 @import url("../blocks/form/__body/form__body.css");
 @import url("../blocks/form/__btn-close/form__btn-close.css");
 @import url("../blocks/form/__title/form__title.css");

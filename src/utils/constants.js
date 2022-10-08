@@ -11,7 +11,7 @@ const profileFormInfo = {
   title: ".form__title",
   inputName: ".form__name",
   inputText: ".form__text",
-  hiddenClass: "form_hidden",
+  hiddenClass: "popup_hidden",
 };
 
 const cardFormInfo = {
@@ -20,7 +20,7 @@ const cardFormInfo = {
   title: ".form__title",
   inputName: ".form__name",
   inputText: ".form__text",
-  hiddenClass: "form_hidden",
+  hiddenClass: "popup_hidden",
 };
 
 const validatorConfig = {
@@ -32,7 +32,7 @@ const validatorConfig = {
 };
 
 const viewSectionInfo = {
-  hiddenClass: "view_hidden",
+  hiddenClass: "popup_hidden",
   btnClose: ".view__btn-close",
 };
 
@@ -40,7 +40,7 @@ const globalInfo = {
   viewSectionClass: ".view",
   cardTemplateId: "#template-card",
   cardSectionClass: ".elements",
-  profileFormTemplateId: "#template-form-edit",
+  profileFormTemplateId: "#form-edit",
   formClass: ".form",
   profileNameClass: ".profile__name",
   profileAboutClass: ".profile__about",
@@ -48,7 +48,7 @@ const globalInfo = {
   profileFormName: "Nombre",
   profileFormText: "Acerca de mi",
   btnEditProfileClass: ".btn_edit",
-  cardFormTemplateId: "#template-form-add",
+  cardFormTemplateId: "#form-add",
   cardFormTitle: "Add a new Card",
   cardFormName: "Nombre",
   cardFormText: "Link",
