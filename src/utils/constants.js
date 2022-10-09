@@ -5,22 +5,8 @@ import latemar from "../images/latemar.png";
 import vanoise from "../images/vanoise.png";
 import braies from "../images/di-braies.png";
 
-const profileFormInfo = {
+const formInfo = {
   btnClose: ".form__btn-close",
-  btnSubmit: ".form__btn-submit",
-  title: ".form__title",
-  inputName: ".form__name",
-  inputText: ".form__text",
-  hiddenClass: "popup_hidden",
-  inputSelector: ".input"
-};
-
-const cardFormInfo = {
-  btnClose: ".form__btn-close",
-  btnSubmit: ".form__btn-submit",
-  title: ".form__title",
-  inputName: ".form__name",
-  inputText: ".form__text",
   hiddenClass: "popup_hidden",
   inputSelector: ".input"
 };
@@ -46,16 +32,9 @@ const globalInfo = {
   formClass: ".form",
   profileNameClass: ".profile__name",
   profileAboutClass: ".profile__about",
-  profileFormTitle: "Edit Profile",
-  profileFormName: "Nombre",
-  profileFormText: "Acerca de mi",
   btnEditProfileClass: ".btn_edit",
   cardFormTemplateId: "#form-add",
-  cardFormTitle: "Add a new Card",
-  cardFormName: "Nombre",
-  cardFormText: "Link",
   btnAddCardClass: ".btn_add",
-  pageClass: ".page",
 };
 
 //array de elementos "card" iniciales
@@ -87,8 +66,7 @@ const cards = [
 ];
 
 export {
-  profileFormInfo,
-  cardFormInfo,
+  formInfo,
   viewSectionInfo,
   validatorConfig,
   globalInfo,
