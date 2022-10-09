@@ -2,7 +2,7 @@ export default class Popup {
   constructor({ popupSelector }, info) {
     this._elem = document.querySelector(popupSelector);
     this._hiddenClass = info.hiddenClass;
-    this._btnClose = document.querySelector(info.btnClose);
+    this._btnClose = this._elem.querySelector(info.btnClose);
   }
 
   getElement() {
@@ -15,6 +15,7 @@ export default class Popup {
   }
 
   close() {
+    document.removeEventListener("keydown", this._handleEscClose);
     this._elem.classList.add(this._hiddenClass);
   }
 
@@ -40,7 +41,6 @@ export default class Popup {
     switch (evt.key) {
       case "Esc":
       case "Escape":
-        document.removeEventListener("keydown", this._handleEscClose);
         this.close();
     }
   };

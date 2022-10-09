@@ -12,6 +12,7 @@ const profileFormInfo = {
   inputName: ".form__name",
   inputText: ".form__text",
   hiddenClass: "popup_hidden",
+  inputSelector: ".input"
 };
 
 const cardFormInfo = {
@@ -21,6 +22,7 @@ const cardFormInfo = {
   inputName: ".form__name",
   inputText: ".form__text",
   hiddenClass: "popup_hidden",
+  inputSelector: ".input"
 };
 
 const validatorConfig = {

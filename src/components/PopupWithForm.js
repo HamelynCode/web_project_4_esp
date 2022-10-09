@@ -1,21 +1,22 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popupSelector, contentSelector }, info, submitCallback) {
+  constructor({ popupSelector, title, nombrePlacehold, textoPlacehold}, info, submitCallback) {
     super({ popupSelector }, info);
-    this._btnClose = this._elem.querySelector(info.btnClose);
-    this._formBtnSubmit = this._elem.querySelector(info.btnSubmit);
     this._formTitle = this._elem.querySelector(info.title);
     this._inputName = this._elem.querySelector(info.inputName);
     this._inputText = this._elem.querySelector(info.inputText);
 
-    this._info = info;
+    this._formTitle.textContent = title;
+    this._inputName.placeholder = nombrePlacehold;
+    this._inputText.placeholder = textoPlacehold;
+
+    this._inputList = Array.from(
+      this._elem.querySelectorAll(info.inputSelector)
+    );
+
     this._submitExternalCallback = submitCallback;
     this.setEventListeners();
-  }
-
-  open() {
-    super.open();
   }
 
   close() {
@@ -24,36 +25,28 @@ export default class PopupWithForm extends Popup {
     this._elem.reset();
   }
 
-  init(title, nombrePlacehold, textoPlacehold) {
-    this._formTitle.textContent = title;
-    this._inputName.placeholder = nombrePlacehold;
-    this._inputText.placeholder = textoPlacehold;
-  }
-
   setEventListeners() {
     //comportamiento on submit
-    this._elem.addEventListener("submit", this._submitExternalCallback);
     this._elem.addEventListener("submit", this._submitInternalCallback);
     super.setEventListeners();
   }
 
   _submitInternalCallback = (evt) => {
+    this._submitExternalCallback(evt);
     this.close();
   };
 
   getInputValues() {
-    const values = {
-      name: this._inputName.value,
-      text: this._inputText.value,
-    };
+    const values = {};
+    this._inputList.forEach(
+      (input) => (values[input.name] = input.value)
+    );
     return values;
   }
 
-  getNameInput() {
-    return this._inputName;
-  }
-
-  getTextInput() {
-    return this._inputText;
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
   }
 }

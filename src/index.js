@@ -15,6 +15,10 @@ import {
 
 import "./pages/index.css";
 
+function createCard(item, selector, callback) {
+  return new Card(item.name, item.link, selector, callback);
+}
+
 const viewSection = new PopupWithImage(
   globalInfo.viewSectionClass,
   viewSectionInfo
@@ -25,9 +29,8 @@ const sectionCards = new Section(
   {
     items: cards,
     renderer: (card) => {
-      const newCard = new Card(
-        card.name,
-        card.link,
+      const newCard = createCard(
+        card,
         globalInfo.cardTemplateId,
         viewSection.showElement
       );
@@ -47,7 +50,9 @@ const user = new UserInfo({
 const profileForm = new PopupWithForm(
   {
     popupSelector: globalInfo.profileFormTemplateId,
-    contentSelector: globalInfo.formClass,
+    title: globalInfo.profileFormTitle,
+    nombrePlacehold: globalInfo.profileFormName,
+    textoPlacehold: globalInfo.profileFormText,
   },
   profileFormInfo,
   (evt) => {
@@ -58,18 +63,23 @@ const profileForm = new PopupWithForm(
     });
   }
 );
-profileForm.init(
-  globalInfo.profileFormTitle,
-  globalInfo.profileFormName,
-  globalInfo.profileFormText
-);
+
 const profileFormElement = profileForm.getElement();
+
+const profileFormValidator = new FormValidator(
+  validatorConfig,
+  profileFormElement
+);
+profileFormValidator.enableValidation();
 
 //comportamiento del boton para abrir el formulario
 const btnEditProfile = document.querySelector(globalInfo.btnEditProfileClass);
 btnEditProfile.addEventListener("click", () => {
-  profileForm.getNameInput().value = user.getUserInfo().name;
-  profileForm.getTextInput().value = user.getUserInfo().about;
+  profileForm.setInputValues({
+    name: user.getUserInfo().name,
+    text: user.getUserInfo().about,
+  });
+  profileFormValidator.checkValidity();
   profileForm.open();
 });
 
@@ -77,7 +87,9 @@ btnEditProfile.addEventListener("click", () => {
 const cardForm = new PopupWithForm(
   {
     popupSelector: globalInfo.cardFormTemplateId,
-    contentSelector: globalInfo.formClass,
+    title: globalInfo.cardFormTitle,
+    nombrePlacehold: globalInfo.cardFormName,
+    textoPlacehold: globalInfo.cardFormText,
   },
   cardFormInfo,
   (evt) => {
@@ -85,9 +97,8 @@ const cardForm = new PopupWithForm(
     const name = cardForm.getInputValues().name;
     const link = cardForm.getInputValues().text;
     if (name && link) {
-      const newCard = new Card(
-        name,
-        link,
+      const newCard = createCard(
+        { name: name, link: link },
         globalInfo.cardTemplateId,
         viewSection.showElement
       );
@@ -95,29 +106,19 @@ const cardForm = new PopupWithForm(
     }
   }
 );
-cardForm.init(
-  globalInfo.cardFormTitle,
-  globalInfo.cardFormName,
-  globalInfo.cardFormText
-);
+
 const cardFormElement = cardForm.getElement();
+
+const cardFormValidator = new FormValidator(validatorConfig, cardFormElement);
+cardFormValidator.enableValidation();
 
 //comportamiento del boton para abrir el formulario
 const btnAddCard = document.querySelector(globalInfo.btnAddCardClass);
 btnAddCard.addEventListener("click", () => {
-  cardForm.getNameInput().value = "";
-  cardForm.getTextInput().value = "";
+  cardFormValidator.checkValidity();
   cardForm.open();
 });
 
 const page = document.querySelector(globalInfo.pageClass);
 page.append(profileFormElement);
 page.append(cardFormElement);
-
-const profileFormValidator = new FormValidator(
-  validatorConfig,
-  profileFormElement
-);
-const cardFormValidator = new FormValidator(validatorConfig, cardFormElement);
-profileFormValidator.enableValidation();
-cardFormValidator.enableValidation();
