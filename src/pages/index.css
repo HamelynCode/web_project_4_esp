@@ -30,6 +30,7 @@
 /*---- form ----*/
 @import url("../blocks/form/form.css");
 @import url("../blocks/form/__body/form__body.css");
+@import url("../blocks/form/__body/_confirm/form__body_confirm.css");
 @import url("../blocks/form/__btn-close/form__btn-close.css");
 @import url("../blocks/form/__title/form__title.css");
 @import url("../blocks/form/__input-container/form__input-container.css");

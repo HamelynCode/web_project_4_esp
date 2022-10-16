@@ -1,0 +1,9 @@
+.form__body_confirm {
+  height: 200px;
+}
+
+@media screen and (max-width: 320px) {
+  .form__body_confirm {
+    height: 200px;
+  }
+}
