@@ -1,28 +1,51 @@
 export default class Card {
-  constructor(name, imgUrl, templateSelector, imgClickCallback) {
+  constructor({id, name, imgUrl, likes}, info, imgClickCallback, deleteCallback, likeCallback, canDelete) {
+    this._id = id;
     this._name = name;
     this._imgUrl = imgUrl;
-    this._elem = this._getElementFromTemplate(templateSelector);
+    this._info = info;
+    this._likes = likes;
+    this._elem = this._getElementFromTemplate(this._info.templateSelector);
+    this._img = this._elem.querySelector(this._info.imgClass);
+    this._btnDelete = this._elem.querySelector(this._info.btnDeleteClass);
+    this._btnLike = this._elem.querySelector(this._info.btnLikeClass);
+    this._likesCount = this._elem.querySelector(this._info.likesCountClass);
+    this._likesCount.textContent = this._likes.length;
+
+    this._deleteCallback = deleteCallback;
     this._imgCallback = imgClickCallback;
+    this._likeCallback = likeCallback;
     this._handleEventListeners();
+    
+    if(canDelete){
+      this._btnDelete.classList.remove(this._info.btnDeleteHidden);
+    }
   }
 
   getElement() {
     return this._elem;
   }
 
+  getCardId() {
+    return this._id;
+  }
+
+  setLikes(likes){
+    this._likesCount.textContent = likes;
+  }
+
   _getElementFromTemplate(templateSelector) {
     //clonar el elemento card que se encuentra dentro del template
     const elem = document
       .querySelector(templateSelector)
-      .content.querySelector(".card")
+      .content.querySelector(this._info.cardClass)
       .cloneNode(true);
-    const img = elem.querySelector(".card__image");
+    const img = elem.querySelector(this._info.imgClass);
     img.name = this._name;
     img.src = this._imgUrl;
     img.alt = this._name;
 
-    const text = elem.querySelector(".card__text");
+    const text = elem.querySelector(this._info.cardTextClass);
     text.textContent = this._name;
     return elem;
   }
@@ -34,25 +57,35 @@ export default class Card {
   }
 
   _btnDeleteClickHandler() {
-    const btnDelete = this._elem.querySelector(".btn_delete");
-    btnDelete.addEventListener("click", this._btnDeleteCallback);
+    this._btnDelete.addEventListener("click", this._btnDeleteCallback);
   }
 
-  _btnDeleteCallback = (evt) => {
-    evt.target.closest(".card").remove();
-    const btnDelete = this._elem.querySelector(".btn_delete");
-    btnDelete.removeEventListener("click", this._btnDeleteCallback);
+  _btnDeleteCallback = () => {
+    this._deleteCallback();
   };
 
+  removeCard(){
+    this._elem.remove();
+    this._btnDelete.removeEventListener("click", this._btnDeleteCallback);
+  }
+
   _imgClickHandler() {
-    const img = this._elem.querySelector(".card__image");
-    img.addEventListener("click", this._imgCallback);
+    this._img.addEventListener("click", this._imgCallback);
   }
 
   _btnLikeClickHandler() {
-    const btnLike = this._elem.querySelector(".btn_like");
-    btnLike.addEventListener("click", function (evt) {
-      evt.target.classList.toggle("btn_like_active");
+    this._btnLike.addEventListener("click", (evt) => {
+      if(evt.target.classList.contains(this._info.btnLikeActiveClass)){
+        this._likeCallback(false).then((res)=>{
+          evt.target.classList.remove(this._info.btnLikeActiveClass);
+          this._likesCount.textContent = res.likes.length;
+        });
+      }else{
+        this._likeCallback(true).then((res)=>{
+          evt.target.classList.add(this._info.btnLikeActiveClass);
+          this._likesCount.textContent = res.likes.length;
+        });
+      }
     });
   }
 }

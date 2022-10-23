@@ -1,14 +1,20 @@
-import yosemite from "../images/yosemite.png";
-import louise from "../images/louise.png";
-import calvas from "../images/calvas.png";
-import latemar from "../images/latemar.png";
-import vanoise from "../images/vanoise.png";
-import braies from "../images/di-braies.png";
 
 const formInfo = {
   btnClose: ".form__btn-close",
   hiddenClass: "popup_hidden",
   inputSelector: ".input"
+};
+
+const cardInfo = {
+  cardClass: ".card",
+  imgClass: ".card__image",
+  btnDeleteClass: ".btn_delete",
+  btnDeleteHidden: "btn_delete_hidden",
+  btnLikeClass: ".btn_like",
+  cardTextClass: ".card__text",
+  btnLikeActiveClass: "btn_like_active",
+  templateSelector: "#template-card",
+  likesCountClass: ".likes-count"
 };
 
 const validatorConfig = {
@@ -26,7 +32,6 @@ const viewSectionInfo = {
 
 const globalInfo = {
   viewSectionClass: ".view",
-  cardTemplateId: "#template-card",
   cardSectionClass: ".elements",
   profileFormTemplateId: "#form-edit",
   formClass: ".form",
@@ -35,40 +40,16 @@ const globalInfo = {
   btnEditProfileClass: ".btn_edit",
   cardFormTemplateId: "#form-add",
   btnAddCardClass: ".btn_add",
+  confirmationFormSelector: "#form-delete",
+  profileEditCover: ".profile__edit-cover",
+  profileAvatarSelector: ".profile__avatar",
+  avatarFormSelector: "#form-profile-img"
 };
-
-//array de elementos "card" iniciales
-const cards = [
-  {
-    name: "Valle de Yosemite",
-    link: yosemite,
-  },
-  {
-    name: "Lago Louise",
-    link: louise,
-  },
-  {
-    name: "Montañas Calvas",
-    link: calvas,
-  },
-  {
-    name: "Latemar",
-    link: latemar,
-  },
-  {
-    name: "Vanoise National Park",
-    link: vanoise,
-  },
-  {
-    name: "Lago di Braies",
-    link: braies,
-  },
-];
 
 export {
   formInfo,
+  cardInfo,
   viewSectionInfo,
   validatorConfig,
   globalInfo,
-  cards,
 };

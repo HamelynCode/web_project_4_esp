@@ -1,0 +1,9 @@
+.form__body_avatar {
+    height: 270px;
+}
+
+@media screen and (max-width: 320px) {
+    .form__body_avatar {
+      height: 270px;
+    }
+  }

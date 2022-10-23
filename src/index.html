@@ -31,6 +31,22 @@
       </div>
     </form>
 
+    <form class="form popup popup_hidden" id="form-profile-img">
+      <div class="form__body form__body_avatar">
+        <button class="btn btn_close form__btn-close" type="button"></button>
+        <h2 class="form__title">Cambiar foto de perfil</h2>
+
+        <div class="form__input-container">
+          <input name="text" type="url" class="input form__text" id="profile-img-input-text" placeholder="Link" required />
+          <span class="form__error"             id="profile-img-input-text-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn_submit form__btn-submit">
+          Sí
+        </button>
+      </div>
+    </form>
+
     <form class="form popup popup_hidden" id="form-edit">
       <div class="form__body">
         <button class="btn btn_close form__btn-close" type="button"></button>
@@ -84,17 +100,20 @@
 
     <!-- Profile -->
     <section class="profile">
-      <img
-        class="profile__avatar"
-        src="<%=require('./images/avatar.jpg')%>"
-        alt="Imágen de perfil del usuario"
-      />
+      <div>
+        <img
+          class="profile__avatar"
+          src="<%=require('./images/avatar.jpg')%>"
+          alt="Imágen de perfil del usuario"
+        />
+        <div class="profile__edit-cover"></div>
+      </div>
       <div class="profile__info">
         <div class="profile__data">
-          <h2 class="profile__name">Jacques Cousteau</h2>
+          <h2 class="profile__name"></h2>
           <button class="btn btn_edit"></button>
         </div>
-        <p class="profile__about">Explorador</p>
+        <p class="profile__about"></p>
       </div>
       <button class="btn btn_add profile__btn"></button>
     </section>
@@ -110,11 +129,14 @@
     <!-- Templates -->
     <template id="template-card">
       <div class="card">
-        <button class="btn btn_delete"></button>
+        <button class="btn btn_delete btn_delete_hidden"></button>
         <img class="card__image" src="<%=require('./images/louise.png')%>" alt="Template" />
         <div class="card__description">
           <p class="card__text">nombre de la imagen</p>
-          <button class="btn btn_like"></button>
+          <div>
+            <button class="btn btn_like"></button>
+            <p class="likes-count">0</p>
+          </div>
         </div>
       </div>
     </template>
