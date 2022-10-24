@@ -139,9 +139,9 @@ function createCard(
   imgCallback,
   deleteCallback,
   likeCallback,
-  creatorId
+  thisUserId
 ) {
-  const canDelete = creatorId === user.getId() ? true : false;
+  const canDelete = thisUserId === item.owner._id ? true : false;
   return new Card(
     { id: item._id, name: item.name, imgUrl: item.link, likes: item.likes },
     cardInfo,
