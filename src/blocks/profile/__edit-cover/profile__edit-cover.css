@@ -19,3 +19,9 @@
 .profile__edit-cover:hover {
     opacity: 1.0;
 }
+
+@media screen and (max-width: 720px) {
+  .profile__edit-cover {
+    left: auto;
+  }
+}

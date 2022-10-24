@@ -1,8 +1,15 @@
+import UserInfo from "../components/UserInfo";
 
 const formInfo = {
   btnClose: ".form__btn-close",
   hiddenClass: "popup_hidden",
-  inputSelector: ".input"
+  inputSelector: ".input",
+  btnSubmitSelector: ".btn_submit",
+};
+
+const formTextInfo = {
+  loadingText: "Guardando...",
+  btnSubmitText: "Guardar",
 };
 
 const cardInfo = {
@@ -14,7 +21,7 @@ const cardInfo = {
   cardTextClass: ".card__text",
   btnLikeActiveClass: "btn_like_active",
   templateSelector: "#template-card",
-  likesCountClass: ".likes-count"
+  likesCountClass: ".card__likes-count",
 };
 
 const validatorConfig = {
@@ -43,7 +50,16 @@ const globalInfo = {
   confirmationFormSelector: "#form-delete",
   profileEditCover: ".profile__edit-cover",
   profileAvatarSelector: ".profile__avatar",
-  avatarFormSelector: "#form-profile-img"
+  avatarFormSelector: "#form-profile-img",
+};
+
+const apiInfo = {
+  user: "me",
+  url: `https://around.nomoreparties.co/v1/web_es_cohort_02`,
+  headers: {
+    authorization: "43821f01-4b26-43b6-994f-72bfc960dac4",
+    "Content-Type": "application/json",
+  },
 };
 
 export {
@@ -52,4 +68,6 @@ export {
   viewSectionInfo,
   validatorConfig,
   globalInfo,
+  formTextInfo,
+  apiInfo,
 };

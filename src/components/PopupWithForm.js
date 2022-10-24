@@ -8,6 +8,8 @@ export default class PopupWithForm extends Popup {
       this._elem.querySelectorAll(info.inputSelector)
     );
 
+    this._btnSubmit = this._elem.querySelector(info.btnSubmitSelector);
+
     this._submitExternalCallback = submitCallback;
     this.setEventListeners();
   }
@@ -24,14 +26,11 @@ export default class PopupWithForm extends Popup {
 
   _submitInternalCallback = (evt) => {
     this._submitExternalCallback(evt);
-    this.close();
   };
 
   getInputValues() {
     const values = {};
-    this._inputList.forEach(
-      (input) => (values[input.name] = input.value)
-    );
+    this._inputList.forEach((input) => (values[input.name] = input.value));
     return values;
   }
 
@@ -39,5 +38,9 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       input.value = data[input.name];
     });
+  }
+
+  setSubmitButtonText(text) {
+    this._btnSubmit.textContent = text;
   }
 }
