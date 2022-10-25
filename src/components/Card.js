@@ -12,7 +12,8 @@ export default class Card {
     this._likesCount = this._elem.querySelector(this._info.likesCountClass);
     this._likesCount.textContent = this._likes.length;
 
-    if(this._likes.length > 0){
+    minimumLikes = 0;
+    if(this._likes.length > minimumLikes){
       this._btnLike.classList.add(this._info.btnLikeActiveClass);
     }
 
